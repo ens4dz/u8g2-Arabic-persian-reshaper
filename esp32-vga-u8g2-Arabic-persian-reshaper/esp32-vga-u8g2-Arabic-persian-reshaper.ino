@@ -13,7 +13,6 @@ const int16_t hsyncPin = 26;
 const int16_t vsyncPin = 27;
 
 //----------------------------------------------------------------------------
-//#define DEBUG
 #define LCDWidth                        400
 #define ALIGNE_CENTER(t)                 ((LCDWidth - (u8g2_for_adafruit_gfx.getUTF8Width(t))) / 2)
 #define ALIGNE_RIGHT(t)                  (LCDWidth - u8g2_for_adafruit_gfx.getUTF8Width(t))
