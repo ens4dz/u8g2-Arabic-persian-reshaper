@@ -15,9 +15,9 @@ const int16_t vsyncPin = 27;
 //----------------------------------------------------------------------------
 //#define DEBUG
 #define LCDWidth                        400
-#define ALINE_CENTER(t)                 ((LCDWidth - (u8g2_for_adafruit_gfx.getUTF8Width(t))) / 2)
-#define ALINE_RIGHT(t)                  (LCDWidth - u8g2_for_adafruit_gfx.getUTF8Width(t))
-#define ALINE_LEFT                      0
+#define ALIGNE_CENTER(t)                 ((LCDWidth - (u8g2_for_adafruit_gfx.getUTF8Width(t))) / 2)
+#define ALIGNE_RIGHT(t)                  (LCDWidth - u8g2_for_adafruit_gfx.getUTF8Width(t))
+#define ALIGNE_LEFT                      0
 #define IS_UNICODE(c)                   (((c) & 0xc0) == 0xc0)
 #define VERSION       1
 #define WHITE 0xffffff
@@ -45,13 +45,13 @@ void loop(void){
   char txt[] = "الحمدلله الذي بنعمته تتم الصالحات";  
   msg1 = prReshaper123(txt) ;
     
-  u8g2_for_adafruit_gfx.setCursor(x, y);                // start writing at this position
+  u8g2_for_adafruit_gfx.setCursor(ALIGNE_RIGHT(txt), y);                // start writing at this Right
   u8g2_for_adafruit_gfx.print(msg1);
   delay(3000);
   
   char txt2[] = "ومن يتق الله يجعل له مخرجا ";  
   msg1 = prReshaper123(txt2) ;   
-  u8g2_for_adafruit_gfx.setCursor(x, y*2);                // start writing at this position
+  u8g2_for_adafruit_gfx.setCursor(ALIGNE_CENTER(txt2), y*2);                // start writing at this CENTER
   u8g2_for_adafruit_gfx.print(msg1);
 
    
