@@ -21,7 +21,7 @@ const prGlyph prForms[] PROGMEM = {
     {198, "\u0626", "\uFE89", "\uFE8B", "\uFE8C", "\uFE8A" },     //6 YEH_HAMZA ئ [*]
     {199, "\u0627", "\uFE8D", "\uFE8D", "\uFE8E", "\uFE8E" },     //7 ALEF ا [*]
     {200, "\u0628", "\uFE8F", "\uFE91", "\uFE92", "\uFE90" },     //8 BEH ب
-    {555, "\u0629", "\uFE93", "\uFE93", "\uFE94", "\uFE94" },     //9 TEH_MARBUTA ة [*]
+    {201, "\u0629", "\uFE93", "\uFE93", "\uFE94", "\uFE94" },     //9 TEH_MARBUTA ة [*]
     {202, "\u062A", "\uFE95", "\uFE97", "\uFE98", "\uFE96" },     //10 TEH ت
     {203, "\u062B", "\uFE99", "\uFE9B", "\uFE9C", "\uFE9A" },     //11 THEH ث
     {204, "\u062C", "\uFE9D", "\uFE9F", "\uFEA0", "\uFE9E" },     //12 JEEM ج
@@ -78,11 +78,11 @@ const prGlyph prForms[] PROGMEM = {
 };
 //----------------------------------------------------------------------------
 bool isFromTheSet1(unsigned char ch){
-    const unsigned char theSet1[18] = {
-        32, '\0', 199, 194, 207, 208, 209, 210,
+    const unsigned char theSet1[] = {
+        32, '\0', 194,195,196,197,198, 199, 207, 208, 209, 210,
         184, 168, 191, 40, 41, 46, 33, 44, 58, 248};
     int16_t i = 0;
-    while (i < 18)
+    while (i < sizeof(theSet1))
     {
         if(ch == theSet1[i])
             return true;        
@@ -112,7 +112,7 @@ int16_t FindGlyph(unsigned char chFind){
   break;
     }
   }
-  return -1;
+  return 7;
 }
 //----------------------------------------------------------------------------
 void utf8rev(char *str){
@@ -290,5 +290,3 @@ String prReshaper123(char *Text){
 // https://stackoverflow.com/questions/199260/how-do-i-reverse-a-utf-8-string-in-place
 
 //----------------------------------------------------------------------------
-
-
